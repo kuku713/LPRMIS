@@ -46,11 +46,11 @@ public class URLLabel extends JLabel implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		if (StringUtil.isNotBlank(actionType)) {
 			if (LPRConstant.ACTION_TYPE_REGIST.equals(actionType)) {
+				System.out.println(LPRConstant.ACTION_TYPE_REGIST);
+				RegistFrame registFrame = RegistFrame.getInstance();
+				registFrame.setVisible(true);
 				LoginFrame loginFrame = LoginFrame.getInstance();
 				loginFrame.dispose();
-				RegistFrame registFrame = RegistFrame.getInstance();
-				registFrame.init();
-				registFrame.setVisible(true);
 			} else if (LPRConstant.ACTION_TYPE_FORGOT_PASSWORD.equals(actionType)) {
 				System.out.println(LPRConstant.ACTION_TYPE_FORGOT_PASSWORD);
 			}

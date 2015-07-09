@@ -23,10 +23,5 @@ public class NeedLabel extends JLabel {
 		super(str);
 		super.setForeground(Color.RED);
 	}
-	
-	public void setText(String str) {
-		super.setText("*" + str);
-		super.setForeground(Color.RED);
-	}
 
 }

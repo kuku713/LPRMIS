@@ -57,12 +57,17 @@ public class LPRConstant {
 	public static final int LOGIN_FRAME_LABEL_HEIGHT = 20;
 	
 	public static final int REGIST_FRAME_SIZE_WIDTH = 400;
-	public static final int REGIST_FRAME_SIZE_HEIGHT = 500;
+	public static final int REGIST_FRAME_SIZE_HEIGHT = 300;
 	public static final int REGIST_FRAME_LABEL_HEIGHT = 20;
-	public static final int REGIST_PANEL_BEGIN_X = 50;
-	public static final int REGIST_PANEL_BEGIN_Y = 100;
-	public static final int REGIST_PANEL_WIDTH   = 300;
-	public static final int REGIST_PANEL_HEIGHT  = 350;
+	public static final int REGIST_PANEL_BEGIN_X = 00;
+	public static final int REGIST_PANEL_BEGIN_Y = 70;
+	public static final int REGIST_PANEL_WIDTH   = 400;
+	public static final int REGIST_PANEL_HEIGHT  = 150;
+	public static final int REGIST_PANEL_BUTTON_BEGIN_X = 140;
+	public static final int REGIST_PANEL_BUTTON_BEGIN_Y = 240;
+	public static final int REGIST_PANEL_BUTTON_WIDTH = 50;
+	public static final int REGIST_PANEL_BUTTON_HEIGHT = 20;
+	public static final int REGIST_PANEL_BUTTON_INTERVAL = 10;
 	
 	public static final int MAIN_FRAME_SIZE_WIDTH         = 1200;
 	public static final int MAIN_FRAME_SIZE_HEIGHT        = 800;

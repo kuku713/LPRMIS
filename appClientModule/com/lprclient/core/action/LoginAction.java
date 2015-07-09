@@ -96,11 +96,11 @@ public class LoginAction implements ActionListener {
 		
 		LPRUtil.setContentDTO(contentDTOs);
 		
-		loginFrame.dispose();
 		MainFrame mainFrame = MainFrame.getInstance();
 		mainFrame.init();
 		mainFrame.setVisible(true);
 		mainFrame.showTimer();
+		loginFrame.dispose();
 	}
 
 }
