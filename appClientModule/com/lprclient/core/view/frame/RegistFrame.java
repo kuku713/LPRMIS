@@ -25,9 +25,11 @@ import com.lprclient.core.DTO.admin.UserDTO;
 import com.lprclient.core.DTO.admin.UserOperateDTO;
 import com.lprclient.core.service.IRoleSV;
 import com.lprclient.core.service.IUserOperateSV;
+import com.lprclient.core.service.IUserRoleRelSV;
 import com.lprclient.core.service.IUserSV;
 import com.lprclient.core.service.impl.RoleSVImpl;
 import com.lprclient.core.service.impl.UserOperateSVImpl;
+import com.lprclient.core.service.impl.UserRoleRelSVImpl;
 import com.lprclient.core.service.impl.UserSVImpl;
 import com.lprclient.core.util.LPRUtil;
 import com.lprclient.core.util.StringUtil;
@@ -65,6 +67,7 @@ public class RegistFrame extends JFrame {
 	private boolean pwdRetypeFlag = false;
 	private IUserSV userSV = new UserSVImpl();
 	private IRoleSV roleSV = new RoleSVImpl();
+	private IUserRoleRelSV userRoleSV = new UserRoleRelSVImpl();
 	private IUserOperateSV operateSV = new UserOperateSVImpl();
 	
 	public static RegistFrame getInstance() {
@@ -293,6 +296,7 @@ public class RegistFrame extends JFrame {
 				userDTO.setStatus(LPRConstant.ADMIN_USER_STATUS_NORMAL);
 				userDTO.setCreateDate(new Date());
 				userSV.saveOrUpdate(userDTO);
+				
 				userDTO = userSV.login(userName.getText(), String.valueOf(password.getPassword()));
 				// 校验成功，更新静态变量
 				RoleDTO roleDTO = roleSV.queryByUserId(userDTO.getUserId());
