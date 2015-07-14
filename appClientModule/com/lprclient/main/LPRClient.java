@@ -11,6 +11,8 @@ import com.lprclient.core.view.frame.LoginFrame;
 public class LPRClient {
 	
 	public static void main(String[] args) {
+		// 设置统一字体
+		
 		LoginFrame loginFrame = LoginFrame.getInstance();
 		loginFrame.setVisible(true);
 	}
