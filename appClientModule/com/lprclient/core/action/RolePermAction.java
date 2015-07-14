@@ -31,7 +31,6 @@ import com.lprclient.core.util.ArrayUtil;
 import com.lprclient.core.util.ComboBoxDataUtil;
 import com.lprclient.core.util.LPRUtil;
 import com.lprclient.core.util.NumUtil;
-import com.lprclient.core.util.PrintUtil;
 import com.lprclient.core.view.combobox.ComboBoxData;
 import com.lprclient.core.view.combobox.KeyObjComboBox;
 import com.lprclient.core.view.panel.RightPanel;

@@ -51,9 +51,9 @@ import com.lprclient.core.view.table.LPRTable;
  * @date: 2015年6月30日 下午11:45:30  
  * @version V1.0    
  */
-public class UserInfoAction extends BaseAction {
+public class UserAction extends BaseAction {
 	
-	public final static String ACTION_CLASS_NAME = "com.lprclient.core.action.UserInfoAction";
+	public final static String ACTION_CLASS_NAME = "com.lprclient.core.action.UserAction";
 	
 	private Pager pager;
 	private LPRTable table;
@@ -71,7 +71,7 @@ public class UserInfoAction extends BaseAction {
 	 * 目录点击后跳转
 	 */
 	public void onClick(String[] navArr) {
-		System.out.println("This is UserInfoAction.");
+		System.out.println("This is UserAction.");
 		this.setNavArr(navArr);
 		repaint();
 	}

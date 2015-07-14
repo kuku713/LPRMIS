@@ -54,7 +54,7 @@ public class RightPanel extends JPanel {
 		this.add(getUserInfo());
 	}
 	
-	private JPanel getUserInfo() {
+	public JPanel getUserInfo() {
 		userInfo = new JPanel();
 		int rowCount = 9;
 		int panelHeight = 0;

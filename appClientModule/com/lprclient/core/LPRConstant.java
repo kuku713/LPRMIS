@@ -71,7 +71,7 @@ public class LPRConstant {
 	public static final int REGIST_PANEL_HEIGHT  = 150;
 	public static final int REGIST_PANEL_BUTTON_BEGIN_X = 140;
 	public static final int REGIST_PANEL_BUTTON_BEGIN_Y = 240;
-	public static final int REGIST_PANEL_BUTTON_WIDTH = 50;
+	public static final int REGIST_PANEL_BUTTON_WIDTH = 70;
 	public static final int REGIST_PANEL_BUTTON_HEIGHT = 20;
 	public static final int REGIST_PANEL_BUTTON_INTERVAL = 10;
 	
