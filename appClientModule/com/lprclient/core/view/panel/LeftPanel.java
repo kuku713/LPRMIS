@@ -55,7 +55,7 @@ public class LeftPanel extends JPanel {
 					continue;
 				}
 				ContentLabel mainLab = new ContentLabel(new String[]{mainDTO.getContentName()}, null);
-				mainLab.setBounds(40, contents * 25 + mainContent * 10, 80, 20);
+				mainLab.setBounds(40, contents * 25 + mainContent * 10, 100, 20);
 				this.add(mainLab);
 				contents++;
 				if (null != subDTOs && subDTOs.size() > 0)
@@ -63,7 +63,7 @@ public class LeftPanel extends JPanel {
 					if (subDTO.getParentContentId().equals(mainDTO.getContentId())) {
 						String[] navArr = new String[]{subDTO.getContentName(), mainDTO.getContentName()};
 						ContentLabel subLab = new ContentLabel(navArr, subDTO.getContentAction());
-						subLab.setBounds(60, contents * 25 + 5 + mainContent * 10, 80, 20);
+						subLab.setBounds(60, contents * 25 + 5 + mainContent * 10, 100, 20);
 						this.add(subLab);
 						contents++;
 					}
