@@ -12,17 +12,14 @@ import com.lprclient.core.DTO.admin.RoleDTO;
 import com.lprclient.core.DTO.admin.RolePermRelDTO;
 import com.lprclient.core.DTO.admin.UserDTO;
 import com.lprclient.core.DTO.admin.UserOperateDTO;
-import com.lprclient.core.service.IContentSV;
 import com.lprclient.core.service.IRolePermRelSV;
 import com.lprclient.core.service.IRoleSV;
 import com.lprclient.core.service.IUserOperateSV;
 import com.lprclient.core.service.IUserSV;
-import com.lprclient.core.service.impl.ContentSVImpl;
 import com.lprclient.core.service.impl.RolePermRelSVImpl;
 import com.lprclient.core.service.impl.RoleSVImpl;
 import com.lprclient.core.service.impl.UserOperateSVImpl;
 import com.lprclient.core.service.impl.UserSVImpl;
-import com.lprclient.core.util.DateUtil;
 import com.lprclient.core.util.LPRUtil;
 import com.lprclient.core.util.StringUtil;
 import com.lprclient.core.view.frame.LoginFrame;
@@ -38,7 +35,7 @@ public class LoginAction implements ActionListener {
 	
 	private IUserSV userSV = new UserSVImpl();
 	private IRoleSV roleSV = new RoleSVImpl();
-	private IContentSV contentSV = new ContentSVImpl();
+//	private IContentSV contentSV = new ContentSVImpl();
 	private IUserOperateSV operateSV = new UserOperateSVImpl();
 	private IRolePermRelSV permSV = new RolePermRelSVImpl();
 

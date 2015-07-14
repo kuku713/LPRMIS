@@ -8,6 +8,18 @@ package com.lprclient.core.util;
  */
 public class NumUtil {
 	
+	public static boolean contains(int[] arr, int i) {
+		if (null != arr) {
+			for (int k : arr) {
+				if (k == i) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	
 	public static boolean intToBool(Integer i) {
 		if (null != i
 				&& i == 1) {

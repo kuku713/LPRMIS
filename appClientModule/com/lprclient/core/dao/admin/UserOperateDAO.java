@@ -65,7 +65,7 @@ public class UserOperateDAO extends BaseDAO {
 	@SuppressWarnings("rawtypes")
 	public List queryAll(int pageNow, int pageSize) {
 		StringBuffer sql = new StringBuffer();
-		sql.append("from UserOperate");
+		sql.append("from UserOperate u order by u.").append(OPERATE_ID).append(" desc");
 		log.info("sql:\n{}", sql.toString());
 		return super.queryByPage(sql.toString(), null, pageNow, pageSize);
 	}

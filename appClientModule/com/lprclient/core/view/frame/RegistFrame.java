@@ -3,7 +3,6 @@ package com.lprclient.core.view.frame;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -16,13 +15,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 
 import com.lprclient.core.LPRConstant;
 import com.lprclient.core.DTO.admin.RoleDTO;
 import com.lprclient.core.DTO.admin.UserDTO;
 import com.lprclient.core.DTO.admin.UserOperateDTO;
+import com.lprclient.core.DTO.admin.UserRoleRelDTO;
 import com.lprclient.core.service.IRoleSV;
 import com.lprclient.core.service.IUserOperateSV;
 import com.lprclient.core.service.IUserRoleRelSV;
@@ -289,15 +287,26 @@ public class RegistFrame extends JFrame {
 					pwdRetype.requestFocus();
 					return;
 				}
+				// 保存用户信息
 				UserDTO userDTO = new UserDTO();
 				userDTO.setUserName(userName.getText());
 				userDTO.setNickName(nickName.getText());
 				userDTO.setPassword(String.valueOf(password.getPassword()));
 				userDTO.setStatus(LPRConstant.ADMIN_USER_STATUS_NORMAL);
 				userDTO.setCreateDate(new Date());
+				userDTO.setLoginTimes(0);
 				userSV.saveOrUpdate(userDTO);
 				
 				userDTO = userSV.login(userName.getText(), String.valueOf(password.getPassword()));
+				
+				// 保存用户角色信息
+				UserRoleRelDTO relDTO = new UserRoleRelDTO();
+				relDTO.setStatus(LPRConstant.ADMIN_USER_ROLE_STATUS_NORMAL);
+				relDTO.setCreateDate(new Date());
+				relDTO.setRoleId(LPRConstant.ADMIN_USER_ROLE_DEFAULT_ID);
+				relDTO.setUserId(userDTO.getUserId());
+				userRoleSV.saveOrUpdate(relDTO);
+				
 				// 校验成功，更新静态变量
 				RoleDTO roleDTO = roleSV.queryByUserId(userDTO.getUserId());
 				userDTO.setRoleDTO(roleDTO);
@@ -310,9 +319,24 @@ public class RegistFrame extends JFrame {
 				userDTO.setLoginTimes(count);
 				userDTO.setLastLoginDate(new Date());
 				userSV.saveOrUpdate(userDTO);
+				
+				// 保存用户注册信息
 				UserOperateDTO userOperateDTO = new UserOperateDTO(userDTO, 
+						LPRConstant.ACTION_TYPE_REGIST, LPRConstant.ACTION_SUCCESS);
+				operateSV.saveOrUpdate(userOperateDTO);
+				
+				// 保存用户登录信息
+				userOperateDTO = new UserOperateDTO(userDTO, 
 						LPRConstant.ACTION_TYPE_LOGIN, LPRConstant.ACTION_SUCCESS);
 				operateSV.saveOrUpdate(userOperateDTO);
+				
+				// 页面跳转
+				MainFrame mainFrame = MainFrame.getInstance();
+				mainFrame.init();
+				mainFrame.setVisible(true);
+				mainFrame.showTimer();
+				RegistFrame registFrame = RegistFrame.getInstance();
+				registFrame.dispose();
 			}
 		});
 		return submitButton;

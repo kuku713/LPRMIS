@@ -20,6 +20,7 @@ import com.lprclient.core.DTO.admin.RoleDTO;
 import com.lprclient.core.service.IRoleSV;
 import com.lprclient.core.service.impl.RoleSVImpl;
 import com.lprclient.core.util.ArrayUtil;
+import com.lprclient.core.util.NumUtil;
 import com.lprclient.core.util.Pager;
 import com.lprclient.core.util.StringUtil;
 import com.lprclient.core.view.label.InputLabel;
@@ -132,8 +133,13 @@ public class RoleAction extends BaseAction {
 					JOptionPane.showMessageDialog(null, "请选择一条记录就行操作",
 							"错误",JOptionPane.ERROR_MESSAGE);
 				} else {
-					subDTO = roleSV.queryByRoleId(getId());
-					subView(LPRConstant.SUB_VIEW_TYPE_EDIT);
+					if (NumUtil.contains(LPRConstant.ADMIN_USER_ROLE_BASE_ID, getId())) {
+						JOptionPane.showMessageDialog(null, "此记录不能修改",
+								"错误",JOptionPane.ERROR_MESSAGE);
+					} else {
+						subDTO = roleSV.queryByRoleId(getId());
+						subView(LPRConstant.SUB_VIEW_TYPE_EDIT);
+					}
 				}
 			}
 		});
@@ -188,7 +194,12 @@ public class RoleAction extends BaseAction {
 					JOptionPane.showMessageDialog(null, "请选择需要删除的记录",
 							"错误",JOptionPane.ERROR_MESSAGE);
 				} else {
-					
+					if (NumUtil.contains(LPRConstant.ADMIN_USER_ROLE_BASE_ID, getId())) {
+						JOptionPane.showMessageDialog(null, "此记录不能删除",
+								"错误",JOptionPane.ERROR_MESSAGE);
+					} else {
+						// 删除
+					}
 				}
 			}
 		});

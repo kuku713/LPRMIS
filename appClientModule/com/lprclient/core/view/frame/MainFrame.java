@@ -42,10 +42,11 @@ public class MainFrame extends JFrame {
 	public void init() {
 		head.init();
 		left.init();
-		this.add(head, null);
-		this.add(left, null);
-		this.add(right, null);
-		this.add(foot, null);
+		right.init();
+		this.add(head);
+		this.add(left);
+		this.add(right);
+		this.add(foot);
 	}
 	
 	public void showTimer() {

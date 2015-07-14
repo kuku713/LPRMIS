@@ -39,6 +39,7 @@ public class HeadPanel extends JPanel {
 	}
 	
 	public void init() {
+		this.removeAll();
 		this.add(getTimerPanel(), null);
 		this.add(getUserPanel(), null);
 		this.add(getLogoutPanel(), null);
@@ -64,9 +65,9 @@ public class HeadPanel extends JPanel {
 		JLabel nickName = new UserLabel(userDTO.getNickName(), "com.lprclient.core.action.UserInfoAction");
 		JLabel welDesc = new JLabel(",你好!");
 		userPanel.removeAll();
-		userPanel.add(roleName, null);
-		userPanel.add(nickName, null);
-		userPanel.add(welDesc, null);
+		userPanel.add(roleName);
+		userPanel.add(nickName);
+		userPanel.add(welDesc);
 		return userPanel;
 	}
 	

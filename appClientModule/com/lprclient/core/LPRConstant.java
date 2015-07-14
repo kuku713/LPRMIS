@@ -17,6 +17,12 @@ public class LPRConstant {
 	public static final String K_CONTENT   = "content";
 	public static final String K_ADMINUSER = "adminUser";
 	
+	public static final int ADMIN_USER_ROLE_DEFAULT_ID = 3;
+	public static final int[] ADMIN_USER_ROLE_BASE_ID = {1, 2};
+	
+	public static final int ADMIN_USER_ROLE_STATUS_NORMAL = 1;
+	public static final int ADMIN_USER_ROLE_STATUS_DELETE = 2;
+	
 	public static final String ISLOGIN_YES = "true";
 	public static final String ISLOGIN_NO  = "false";
 	
@@ -118,6 +124,12 @@ public class LPRConstant {
 	public static final int FOOT_PANEL_COPY_BEGIN_Y       = MAIN_FRAME_FOOT_PANEL_Y + 4;
 	public static final int FOOT_PANEL_COPY_WIDTH         = 500;
 	public static final int FOOT_PANEL_COPY_HEIGHT        = 15;
+	
+	public static final int USER_INFO_PANEL_BEGIN_X = 200;
+	public static final int USER_INFO_PANEL_BEGIN_Y = 100;
+	public static final int USER_INFO_PANEL_WIDTH   = 550;
+	public static final int USER_INFO_PANEL_HEIGHT  = 580;
+	public static final int USER_INFO_LABEL_EACH    = 25;
 	
 	/** 表格常量 **/
 	public static final int TABLE_HEAD_HEIGHT = 30;
