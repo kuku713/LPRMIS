@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="appClientModule"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
-	<classpathentry kind="lib" path="/Users/kuku/Downloads/mysql-connector-java-5.1.22-bin.jar"/>
-	<classpathentry kind="output" path="build/classes"/>
+	<classpathentry kind="lib" path="bin/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="bin/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="bin/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="bin/lib/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="bin/lib/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="bin/lib/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="bin/lib/hibernate-core.jar"/>
+	<classpathentry kind="lib" path="bin/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="bin/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="bin/lib/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="bin/lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="bin/lib/logback-classic-1.0.13.jar"/>
+	<classpathentry kind="lib" path="bin/lib/logback-core-1.0.13.jar"/>
+	<classpathentry kind="lib" path="bin/lib/mysql-connector-java-5.1.22-bin.jar"/>
+	<classpathentry kind="lib" path="bin/lib/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
