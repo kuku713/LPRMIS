@@ -20,3 +20,4 @@ build/classes/com/lprclient/core/view/frame/RegistFrame.class
 *.class
 
 *.class
+*.prefs
