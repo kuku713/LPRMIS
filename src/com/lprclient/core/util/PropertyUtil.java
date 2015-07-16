@@ -1,5 +1,6 @@
 package com.lprclient.core.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,25 +34,31 @@ public class PropertyUtil {
      * 初始化PropertyUtil
      * @param filePath 配置文件的路径+名称
      */
-	public PropertyUtil(String filePath) {
+	public PropertyUtil(String filePath, boolean newCreate) {
 		properties = new Properties();
-		this.load(filePath);
+		this.load(filePath, newCreate);
 	}
 	
 	/**
 	 * 加载Property
 	 * @param filePath
 	 */
-	private void load(String filePath) {
+	private void load(String filePath, boolean newCreate) {
 		try {
+			if (newCreate) {
+				File file = new File(filePath);
+				if (!file.exists()) {
+					saveFile(filePath, "New Create");
+				}
+			}
 			inputFile = new FileInputStream(filePath); 
-			properties.load(inputFile); 
+			properties.load(inputFile);
 		} catch (FileNotFoundException ex) { 
-	            log.error("读取属性文件--->失败！- 原因：文件路径错误或者文件不存在\n" + "文件路径:" + filePath);
-	            ex.printStackTrace(); 
+	        log.error("读取属性文件--->失败！- 原因：文件路径错误或者文件不存在\n" + "文件路径:" + filePath);
+	        ex.printStackTrace(); 
 		} catch (IOException ex) { 
-	            log.error("装载文件--->失败!");
-	            ex.printStackTrace(); 
+	        log.error("装载文件--->失败!");
+	        ex.printStackTrace(); 
 		} finally {
 			if (null != inputFile) {
 				try {
@@ -96,7 +103,7 @@ public class PropertyUtil {
 	 * @return
 	 */
 	public String getValue(String filePath, String key) {
-		this.load(filePath);
+		this.load(filePath, false);
 		return getValue(key);
 	}
 	
