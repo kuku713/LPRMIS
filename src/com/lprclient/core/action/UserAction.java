@@ -482,27 +482,7 @@ public class UserAction extends BaseAction {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				String roleName = roleNameTxt.getText().trim();
-//				String roleDesc = roleDescTxt.getText().trim();
-//				if (StringUtil.isBlank(roleName)) {
-//					JOptionPane.showMessageDialog(null, "请输入角色名称",
-//							"错误",JOptionPane.ERROR_MESSAGE);
-//					
-//					roleNameTxt.requestFocus();
-//					return;
-//				} else {
-//					subDTO.setRoleName(roleName);
-//					subDTO.setRoleDesc(roleDesc);
-//					roleSV.saveOrUpdate(subDTO);
-//					if (subViewType == LPRConstant.SUB_VIEW_TYPE_ADD) {
-//						JOptionPane.showMessageDialog(null, "新增成功",
-//								"提示",JOptionPane.INFORMATION_MESSAGE);
-//					} else if (subViewType == LPRConstant.SUB_VIEW_TYPE_EDIT) {
-//						JOptionPane.showMessageDialog(null, "修改成功",
-//								"提示",JOptionPane.INFORMATION_MESSAGE);
-//					}
-//					onClick(ArrayUtil.newArrRedHead(getNavArr()));
-//				}
+				System.out.println(1111);
 			}
 		});
 		return submitBtn;
