@@ -47,7 +47,7 @@ public class LoginFrame extends JFrame {
 		this.add(getPasswordLab(), null);
 		this.add(getUserName(), null);
 		this.add(getPassword(), null);
-		this.add(getForgotPSW(), null);
+//		this.add(getForgotPSW(), null);
 		this.add(getRegist(), null);
 		this.add(getLoginButton(), null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // 设置关闭按钮
@@ -101,7 +101,6 @@ public class LoginFrame extends JFrame {
 		if (null == userName) {
 			userName = new JTextField();
 			userName.setBounds(200, 80, LPRConstant.LOGIN_FRAME_LABEL_WIDTH, LPRConstant.LOGIN_FRAME_LABEL_HEIGHT);
-			userName.setText("zhangsan");
 		}
 		return userName;
 	}
@@ -110,7 +109,6 @@ public class LoginFrame extends JFrame {
 		if (null == password) {
 			password = new JPasswordField();
 			password.setBounds(200, 120, LPRConstant.LOGIN_FRAME_LABEL_WIDTH, LPRConstant.LOGIN_FRAME_LABEL_HEIGHT);
-			password.setText("12345");
 		}
 		return password;
 	}

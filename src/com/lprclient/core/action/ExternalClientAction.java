@@ -8,7 +8,11 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.lprclient.core.LPRConstant;
 import com.lprclient.core.util.PropertyUtil;
@@ -23,6 +27,7 @@ import com.lprclient.core.view.panel.RightPanel;
  */
 public class ExternalClientAction extends BaseAction {
 	
+	private static final Logger log = LoggerFactory.getLogger(ExternalClientAction.class);
 	private static Process process = null;
 	private JTextField labPath;
 	private PropertyUtil propUtil = new PropertyUtil(LPRConstant.PROPERTY_FILE_NAME, true);
@@ -96,6 +101,11 @@ public class ExternalClientAction extends BaseAction {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if (StringUtil.isBlank(labPath.getText())) {
+					JOptionPane.showMessageDialog(null, "请选择正确的路径",
+							"错误",JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				try {
 					String path = labPath.getText();
 					process = Runtime.getRuntime().exec(path, null, new File(path.replace("\\load.exe", "")));
@@ -103,8 +113,10 @@ public class ExternalClientAction extends BaseAction {
 						propUtil.setValue(LPRConstant.PROPERTY_ATTR_LABPATH, path);
 						propUtil.saveFile(LPRConstant.PROPERTY_FILE_NAME, "SAVE LABPATH");
 					}
+					log.error("============车牌识别程序成功启动");
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, "请选择正确的路径",
+							"错误",JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 			}
@@ -121,6 +133,8 @@ public class ExternalClientAction extends BaseAction {
 			public void actionPerformed(ActionEvent e) {
 				if (null != process) {
 					process.destroy();
+					process = null;
+					log.error("============车牌识别程序成功关闭");
 				}
 			}
 		});

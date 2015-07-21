@@ -18,7 +18,7 @@ public class LPRConstant {
 	public static final String K_ADMINUSER = "adminUser";
 	
 	public static final int ADMIN_USER_ROLE_DEFAULT_ID = 3;
-	public static final int[] ADMIN_USER_ROLE_BASE_ID = {1, 2};
+	public static final int[] ADMIN_USER_ROLE_BASE_ID = {1, 2, 3};
 	
 	public static final int ADMIN_USER_ROLE_STATUS_NORMAL = 1;
 	public static final int ADMIN_USER_ROLE_STATUS_DELETE = 2;
@@ -65,11 +65,11 @@ public class LPRConstant {
 	public static final int LOGIN_FRAME_SIZE_WIDTH   = 400;
 	public static final int LOGIN_FRAME_SIZE_HEIGHT  = 300;
 	public static final int LOGIN_FRAME_LABEL_WIDTH  = 120;
-	public static final int LOGIN_FRAME_LABEL_HEIGHT = 20;
+	public static final int LOGIN_FRAME_LABEL_HEIGHT = 30;
 	
 	public static final int REGIST_FRAME_SIZE_WIDTH = 400;
 	public static final int REGIST_FRAME_SIZE_HEIGHT = 300;
-	public static final int REGIST_FRAME_LABEL_HEIGHT = 20;
+	public static final int REGIST_FRAME_LABEL_HEIGHT = 25;
 	public static final int REGIST_PANEL_BEGIN_X = 00;
 	public static final int REGIST_PANEL_BEGIN_Y = 70;
 	public static final int REGIST_PANEL_WIDTH   = 400;
@@ -77,7 +77,7 @@ public class LPRConstant {
 	public static final int REGIST_PANEL_BUTTON_BEGIN_X = 140;
 	public static final int REGIST_PANEL_BUTTON_BEGIN_Y = 240;
 	public static final int REGIST_PANEL_BUTTON_WIDTH = 70;
-	public static final int REGIST_PANEL_BUTTON_HEIGHT = 20;
+	public static final int REGIST_PANEL_BUTTON_HEIGHT = 25;
 	public static final int REGIST_PANEL_BUTTON_INTERVAL = 10;
 	
 	public static final int MAIN_FRAME_SIZE_WIDTH         = 1200;
@@ -111,7 +111,7 @@ public class LPRConstant {
 	public static final int RIGHT_PANEL_NAV_HEIGHT        = 20;
 	
 	public static final int HEAD_PANEL_TIMER_BEGIN_X      = 900;
-	public static final int HEAD_PANEL_TIMER_BEGIN_Y	     = 20;
+	public static final int HEAD_PANEL_TIMER_BEGIN_Y	  = 20;
 	public static final int HEAD_PANEL_TIMER_WIDTH        = 280;
 	public static final int HEAD_PANEL_TIMER_HEIGHT       = 20;
 	

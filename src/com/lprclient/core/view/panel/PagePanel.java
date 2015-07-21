@@ -81,8 +81,8 @@ public class PagePanel extends JPanel {
 	private JButton getGoButton() {
 		JButton go = new JButton("Go");
 		go.setBounds(LPRConstant.PAGE_PANEL_BEGIN_X + 200, begin_y,
-				45, 20);
-		go.setPreferredSize(new Dimension(45, 20));
+				50, 20);
+		go.setPreferredSize(new Dimension(50, 20));
 		go.addActionListener(new ActionListener() {
 			
 			@SuppressWarnings("rawtypes")

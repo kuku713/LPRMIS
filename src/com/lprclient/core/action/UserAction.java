@@ -18,11 +18,14 @@ import javax.swing.JScrollPane;
 import com.lprclient.core.LPRConstant;
 import com.lprclient.core.DTO.admin.UserDTO;
 import com.lprclient.core.DTO.admin.UserOperateDTO;
+import com.lprclient.core.DTO.admin.UserRoleRelDTO;
 import com.lprclient.core.service.IRoleSV;
 import com.lprclient.core.service.IUserOperateSV;
+import com.lprclient.core.service.IUserRoleRelSV;
 import com.lprclient.core.service.IUserSV;
 import com.lprclient.core.service.impl.RoleSVImpl;
 import com.lprclient.core.service.impl.UserOperateSVImpl;
+import com.lprclient.core.service.impl.UserRoleRelSVImpl;
 import com.lprclient.core.service.impl.UserSVImpl;
 import com.lprclient.core.util.ArrayUtil;
 import com.lprclient.core.util.ComboBoxDataUtil;
@@ -62,6 +65,7 @@ public class UserAction extends BaseAction {
 	private boolean hasSelectColumn = true;  // 是否需要第一列选择列
 	private IUserSV userSV = new UserSVImpl();
 	private IRoleSV roleSV = new RoleSVImpl();
+	private IUserRoleRelSV userRoleSV = new UserRoleRelSVImpl();
 	private IUserOperateSV operateSV = new UserOperateSVImpl();
 	private UserDTO userDTO = null;
 	private KeyObjComboBox statusCombox;
@@ -455,7 +459,6 @@ public class UserAction extends BaseAction {
 	 * @return
 	 */
 	private JButton getSubBackBtn(int subViewType) {
-		System.out.println(subPanelHeight);
 		JButton backBtn = new JButton("返回");
 		backBtn.setBounds(LPRConstant.SUB_BUTTON_BACK_BEGIN_X, LPRConstant.SUB_PANEL_BEGIN_Y + subPanelHeight + 10, 
 				LPRConstant.SUB_BUTTON_WIDTH, LPRConstant.SUB_BUTTON_HEIGHT);
@@ -482,7 +485,20 @@ public class UserAction extends BaseAction {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(1111);
+				userDTO.setStatus(statusCombox.getSelectedKey());
+				userSV.saveOrUpdate(userDTO);
+				UserRoleRelDTO dto = userRoleSV.queryByUserId(userDTO.getUserId());
+				if (null != dto) {
+					dto.setRoleId(roleCombox.getSelectedKey());
+				}
+				userRoleSV.saveOrUpdate(dto);
+				UserDTO adminUser = LPRUtil.getAdminUser();
+				UserOperateDTO userOperateDTO = new UserOperateDTO(adminUser, 
+						LPRConstant.ACTION_TYPE_MODIFY_USER, LPRConstant.ACTION_SUCCESS);
+				operateSV.saveOrUpdate(userOperateDTO);
+				JOptionPane.showMessageDialog(null, "修改成功",
+						"提示",JOptionPane.INFORMATION_MESSAGE);
+				onClick(ArrayUtil.newArrRedHead(getNavArr()));
 			}
 		});
 		return submitBtn;
