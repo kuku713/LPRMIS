@@ -272,7 +272,7 @@ public class UserAction extends BaseAction {
 		
 		table.addMouseListener(new CheckBoxListener(table));
 		table.setBackground(Color.LIGHT_GRAY);
-		Font font = new Font(null, Font.BOLD, 15);
+		Font font = new Font("宋体", Font.BOLD, 15);
 		table.getTableHeader().setFont(font);
 		
 		scroll = new LPRScrollPan(table);

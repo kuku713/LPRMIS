@@ -60,7 +60,7 @@ public class LoginFrame extends JFrame {
 			loginLab.setBounds(100, 20, 200, LPRConstant.LOGIN_FRAME_LABEL_HEIGHT);
 			loginLab.setText("请登录");
 			loginLab.setHorizontalAlignment(JLabel.CENTER);
-			Font f = new Font(null, ABORT, 20);
+			Font f = new Font("宋体", Font.BOLD, 20);
 			loginLab.setFont(f);
 		}
 		return loginLab;

@@ -29,7 +29,7 @@ public class URLLabel extends JLabel implements MouseListener {
 		this.setForeground(Color.blue); //设置链接颜色
 		this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); //设置鼠标样式
 		this.setToolTipText(tipTextStr); //设置提示文字
-		Font f = new Font(null, Font.ITALIC, 12);
+		Font f = new Font("宋体", Font.PLAIN, 12);
 		this.setFont(f);
 		this.addMouseListener(this);
 	}

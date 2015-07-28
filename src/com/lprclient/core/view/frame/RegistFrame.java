@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,14 +19,18 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.lprclient.core.LPRConstant;
+import com.lprclient.core.DTO.admin.ContentDTO;
 import com.lprclient.core.DTO.admin.RoleDTO;
+import com.lprclient.core.DTO.admin.RolePermRelDTO;
 import com.lprclient.core.DTO.admin.UserDTO;
 import com.lprclient.core.DTO.admin.UserOperateDTO;
 import com.lprclient.core.DTO.admin.UserRoleRelDTO;
+import com.lprclient.core.service.IRolePermRelSV;
 import com.lprclient.core.service.IRoleSV;
 import com.lprclient.core.service.IUserOperateSV;
 import com.lprclient.core.service.IUserRoleRelSV;
 import com.lprclient.core.service.IUserSV;
+import com.lprclient.core.service.impl.RolePermRelSVImpl;
 import com.lprclient.core.service.impl.RoleSVImpl;
 import com.lprclient.core.service.impl.UserOperateSVImpl;
 import com.lprclient.core.service.impl.UserRoleRelSVImpl;
@@ -67,6 +73,7 @@ public class RegistFrame extends JFrame {
 	private IRoleSV roleSV = new RoleSVImpl();
 	private IUserRoleRelSV userRoleSV = new UserRoleRelSVImpl();
 	private IUserOperateSV operateSV = new UserOperateSVImpl();
+	private IRolePermRelSV permSV = new RolePermRelSVImpl();
 	
 	public static RegistFrame getInstance() {
 		return instance;
@@ -89,7 +96,7 @@ public class RegistFrame extends JFrame {
 		JLabel registLab = new JLabel("注册");
 		registLab.setBounds(100, 20, 200, LPRConstant.REGIST_FRAME_LABEL_HEIGHT);
 		registLab.setHorizontalAlignment(JLabel.CENTER);
-		Font f = new Font(null, ABORT, 20);
+		Font f = new Font("宋体", Font.BOLD, 20);
 		registLab.setFont(f);
 		return registLab;
 	}
@@ -329,6 +336,19 @@ public class RegistFrame extends JFrame {
 				userOperateDTO = new UserOperateDTO(userDTO, 
 						LPRConstant.ACTION_TYPE_LOGIN, LPRConstant.ACTION_SUCCESS);
 				operateSV.saveOrUpdate(userOperateDTO);
+				
+				// 查询用户权限列表
+				List<ContentDTO> contentDTOs = new ArrayList<ContentDTO>();
+				List<RolePermRelDTO> permDTOs = permSV.queryByRoleId(userDTO.getRoleDTO().getRoleId());
+				if (null != permDTOs && permDTOs.size() > 0) {
+					for (RolePermRelDTO dto : permDTOs) {
+						if (LPRConstant.ROLE_PERM_YES == dto.getPermPage()) {
+							contentDTOs.add(dto.getContentDTO());
+						}
+					}
+				}
+				
+				LPRUtil.setContentDTO(contentDTOs);
 				
 				// 页面跳转
 				MainFrame mainFrame = MainFrame.getInstance();

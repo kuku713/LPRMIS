@@ -29,10 +29,10 @@ public class ContentLabel extends JLabel implements MouseListener {
 			this.setActionClassName(actionClassName);
 			this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); //设置鼠标样式
 			this.addMouseListener(this);
-			Font f = new Font(null, Font.PLAIN, 15);
+			Font f = new Font("宋体", Font.PLAIN, 15);
 			this.setFont(f);
 		} else {
-			Font f = new Font(null, Font.BOLD, 16);
+			Font f = new Font("宋体", Font.BOLD, 16);
 			this.setFont(f);
 		}	
 	}
