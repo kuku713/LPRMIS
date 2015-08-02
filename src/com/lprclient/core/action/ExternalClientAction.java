@@ -36,7 +36,6 @@ public class ExternalClientAction extends BaseAction {
 	 * 目录点击后跳转
 	 */
 	public void onClick(String[] navArr) {
-		System.out.println("This is UserAction.");
 		this.setNavArr(navArr);
 		repaint();
 	}

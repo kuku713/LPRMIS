@@ -68,6 +68,24 @@ public class StringUtil {
 		}
 	}
 	
+	/**
+	 * 判断是否包含
+	 * @param arr
+	 * @param str
+	 * @return
+	 */
+	public static boolean contains(String[] arr, String str) {
+		if (null == arr || isBlank(str)
+				|| arr.length == 0) {
+			return false;
+		}
+		for (String s : arr) {
+			if (s.equalsIgnoreCase(str))
+				return true;
+		}
+		return false;
+	}
+	
 	public static void doStr(String str) {
 		str = str + "aaa";
 	}

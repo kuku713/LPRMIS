@@ -36,6 +36,8 @@ public class LPRConstant {
 	
 	public static final String COPYRIGHT_DESC = "Copyright © 2015 All rights reserved.";
 	
+	public static final String[] FILE_FILTER_IMAGE_TYPE = {"jpg", "jpeg", "gif", "png", "bmp"};
+	
 	public static final int ACTION_SUCCESS = 1; // 事务操作成功
 	public static final int ACTION_FAIL    = 0; // 事务操作失败
 	public static final String ACTION_SUCCESS_DESC = "成功";
@@ -43,6 +45,7 @@ public class LPRConstant {
 	
 	public static final String PROPERTY_FILE_NAME = "admin.properties";
 	public static final String PROPERTY_ATTR_LABPATH = "labpath";
+	public static final String PROPERTY_ATTR_PICPATH = "picpath";
 	public static final String PROPERTY_ATTR_USERNAME = "username";
 	public static final String PROPERTY_ATTR_PASSWORD = "password";
 	
